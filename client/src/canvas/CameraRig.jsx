@@ -10,6 +10,21 @@ const CameraRig = ({ children }) => {
   const snap = useSnapshot(state);
 
   useFrame((state, delta) => {
+    const isBreakpoint = window.innerWidth <= 1260;
+    const isMobile = window.innerWidth <= 600;
+
+    // definir a posição inicial do modelo
+    let targetPosition = [-0.4, 0, 2];
+    if(snap.intro) {
+      if(isBreakpoint) targetPosition = [0, 0, 2];
+      if(isMobile) targetPosition = [0, 0.2, 2.5];
+    } else {
+      if(isMobile) targetPosition = [0, 0, 2.5]
+      else targetPosition = [0, 0, 2];
+    }
+
+    // definir a posição da câmera do modelo
+    easing.damp3(state.camera.position, targetPosition, 0.25, delta)
 
   //definir a rotação do modelo suavemente
   easing.dampE(
