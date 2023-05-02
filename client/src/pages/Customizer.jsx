@@ -24,7 +24,7 @@ const Customizer = () => {
     stylishShirt: false,
   })
 
-  // show tab content depending on the activeTab
+  // mostra o conteúdo da aba dependendo do activeTab
   const generateTabContent = () => {
     switch (activeEditorTab) {
       case "colorpicker":
@@ -48,7 +48,7 @@ const Customizer = () => {
   }
 
   const handleSubmit = async (type) => {
-    if(!prompt) return alert("Please enter a prompt");
+    if(!prompt) return alert("Insira uma solicitação ");
 
     try {
       setGeneratingImg(true);
@@ -98,7 +98,7 @@ const Customizer = () => {
         break;
     }
 
-    // after setting the state, activeFilterTab is updated
+    // depois de definir o estado, activeFilterTab é atualizado
 
     setActiveFilterTab((prevState) => {
       return {
@@ -122,7 +122,7 @@ const Customizer = () => {
         <>
           <motion.div
             key="custom"
-            className="absolute top-0 left-0 z-10"
+            className="absolute top-0 left-0 z-10 "
             {...slideAnimation('left')}
           >
             <div className="flex items-center min-h-screen">
